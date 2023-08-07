@@ -67,6 +67,7 @@ function collectPosts(data, postTypes, config) {
 				},
 				frontmatter: {
 					title: getPostTitle(post),
+					creator: getPostCreator(post),
 					date: getPostDate(post),
 					categories: getCategories(post),
 					tags: getTags(post)
@@ -108,6 +109,11 @@ function getPostCoverImageId(post) {
 function getPostTitle(post) {
 	return post.title[0];
 }
+
+function getPostCreator(post) {
+	return post.creator[0];
+}
+
 
 function getPostDate(post) {
 	const dateTime = luxon.DateTime.fromRFC2822(post.pubDate[0], { zone: 'utc' });
